@@ -2,5 +2,5 @@ import React from 'react'
 import { ContentWrapper } from '../elements'
 
 export const Content = ({ children }) => {
-  return <ContainerWrapper>{children}</ContainerWrapper>
+  return <ContentWrapper>{children}</ContentWrapper>
 }
