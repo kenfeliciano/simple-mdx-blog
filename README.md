@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9a3d93c8-d571-42c1-a2b0-257f96dbb78a/deploy-status)](https://app.netlify.com/sites/amazing-boyd-d0e90c/deploys)
+
 # Personal Blog
 
 Documenting learning and creating for future me and anyone else that finds this interesting!
