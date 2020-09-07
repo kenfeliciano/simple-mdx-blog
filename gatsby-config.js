@@ -1,4 +1,14 @@
+const siteMetaData = {
+  title: 'My MDX Blog',
+  description: 'A simple blog built with Gatsby and MDX',
+  url: 'https://koamar.com/blog',
+  image: './src/images/meeting-room.jpg',
+  twitterUsername: '@koamar',
+  author: 'Ken Feliciano',
+}
+
 module.exports = {
+  siteMetadata: siteMetaData,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
