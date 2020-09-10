@@ -5,13 +5,13 @@ import { H1 } from '../elements'
 import { Container, Post, FeatureImage, Seo } from '../components'
 
 const singlePost = ({ data }) => {
-  const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
+  const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fluid
   const seoImage = data.mdx.frontmatter.featureImage.publicURL
 
   return (
     <Container>
       <Seo title={data.mdx.frontmatter.title} image={seoImage} description={data.mdx.frontmatter.excerpt} />
-      <FeatureImage fixed={featureImage} />
+      <FeatureImage fluid={featureImage} />
       <Post>
         <H1 margin='0 0 2rem 0'>{data.mdx.frontmatter.title}</H1>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
@@ -34,8 +34,8 @@ export const pageQuery = graphql`
         featureImage {
           publicURL
           childImageSharp {
-            fixed {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }

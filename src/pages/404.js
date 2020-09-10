@@ -4,10 +4,10 @@ import { Container, Content, FeatureImage } from '../components'
 import { H1 } from '../elements'
 
 const notFound = ({ data }) => {
-  const featureImage = data.imageSharp.fixed
+  const featureImage = data.imageSharp.fluid
   return (
     <Container>
-      <FeatureImage fixed={featureImage} />
+      <FeatureImage fluid={featureImage} />
       <Content>
         <H1 textAlign='center' margin='0 0 1rem 0'>
           What you're looking for could not be found.
@@ -21,9 +21,9 @@ export default notFound
 
 export const notFoundQuery = graphql`
   query NotFoundQuery {
-    imageSharp(fixed: { originalName: { eq: "sad-cat.jpg" } }) {
-      fixed {
-        ...GatsbyImageSharpFixed
+    imageSharp(fluid: { originalName: { eq: "sad-cat.jpg" } }) {
+      fluid {
+        ...GatsbyImageSharpFluid
       }
     }
   }
