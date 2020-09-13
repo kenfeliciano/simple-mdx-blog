@@ -45,6 +45,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: Download public dir
+        uses: actions/download-artifact@v2
+        with:
+          name: public
       - name: Simple FTP deploy
         # You may pin to the exact commit or the version.
         # uses: kevinpainchaud/simple-ftp-deploy-action@ff2cc698570eab5c9accc168e7de7781bcde6f38
