@@ -62,9 +62,9 @@ jobs:
           # FTP password
           ftp_password: ${{ secrets.FTP_PASSWORD }}
           # The local folder to copy
-          local_source_dir: public
+          local_source_dir: 'public'
           # The remote folder
-          dist_target_dir: blog
+          dist_target_dir: 'blog'
           # Delete files not present in the local folder on the remote folder
           delete: # optional, default is false
           # Ignore file(s) and/or directorie(s)
