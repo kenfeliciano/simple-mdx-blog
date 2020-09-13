@@ -45,11 +45,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: FTP Deployment
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      - name: Simple FTP deploy
+        # You may pin to the exact commit or the version.
+        # uses: kevinpainchaud/simple-ftp-deploy-action@ff2cc698570eab5c9accc168e7de7781bcde6f38
+        uses: kevinpainchaud/simple-ftp-deploy-action@v1.1.0
         with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public
-          git-ftp-args: --remote-root blogs
+          # FTP host
+          ftp_host: ${{ secrets.FTP_SERVER }}
+          # FTP username
+          ftp_username: ${{ secrets.FTP_USERNAME }}
+          # FTP password
+          ftp_password: ${{ secrets.FTP_PASSWORD }}
+          # The local folder to copy
+          local_source_dir: public
+          # The remote folder
+          dist_target_dir: blog
+          # Delete files not present in the local folder on the remote folder
+          delete: # optional, default is false
+          # Ignore file(s) and/or directorie(s)
+          exclude: # optional, default is
+          # Disable SSL certificate verification
+          disable_ssl_certificate_verification: # optional, default is true
