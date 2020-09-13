@@ -50,4 +50,4 @@ jobs:
           host: ${{ secrets.FTP_SERVER }}
           path: public
           into: blog
-          cleanupExisting: true # this is default, removes already existing files @into
+          cleanupExisting: false # true is default, removes already existing files @into
