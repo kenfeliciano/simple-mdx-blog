@@ -45,16 +45,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Download public dir
-        uses: actions/download-artifact@v2
-        with:
-          name: public
-      - name: Upload ftp
-        uses: sebastianpopp/ftp-action@v2.0.0
+      - uses: actions/checkout@v2      
+      - name: FTP Deployment
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with: 
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "./public"
-          remoteDir: "blog"     
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/
+          git-ftp-args: --remote-root blog
