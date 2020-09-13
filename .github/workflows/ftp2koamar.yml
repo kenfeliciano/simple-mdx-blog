@@ -45,29 +45,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Download public dir
         uses: actions/download-artifact@v2
         with:
           name: public
-      - name: Simple FTP deploy
-        # You may pin to the exact commit or the version.
-        # uses: kevinpainchaud/simple-ftp-deploy-action@ff2cc698570eab5c9accc168e7de7781bcde6f38
-        uses: kevinpainchaud/simple-ftp-deploy-action@v1.1.0
+          path: public
+      - name: Upload via FTP
+        uses: isthatcentered/dist-to-ftp@master
         with:
-          # FTP host
-          ftp_host: ${{ secrets.FTP_SERVER }}
-          # FTP username
-          ftp_username: ${{ secrets.FTP_USERNAME }}
-          # FTP password
-          ftp_password: ${{ secrets.FTP_PASSWORD }}
-          # The local folder to copy
-          local_source_dir: 'public'
-          # The remote folder
-          dist_target_dir: 'blog'
-          # Delete files not present in the local folder on the remote folder
-          delete: # optional, default is false
-          # Ignore file(s) and/or directorie(s)
-          exclude: # optional, default is
-          # Disable SSL certificate verification
-          disable_ssl_certificate_verification: # optional, default is true
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          host: ${{ secrets.FTP_SERVER }}
+          path: public
+          into: blog
+          cleanupExisting: true # this is default, removes already existing files @into
