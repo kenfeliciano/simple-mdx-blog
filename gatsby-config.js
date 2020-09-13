@@ -9,6 +9,7 @@ const siteMetaData = {
 
 module.exports = {
   siteMetadata: siteMetaData,
+  pathPrefix: `/blog`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
