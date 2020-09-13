@@ -6,9 +6,9 @@ name: CI
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install, build
-        run: |        
+        run: |
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -38,19 +38,19 @@ jobs:
         with:
           name: public
           path: public
-        env: 
+        env:
           CI: true
-  deploy: 
+  deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2      
+      - uses: actions/checkout@v2
       - name: FTP Deployment
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with: 
+        with:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/
+          local-dir: public
           git-ftp-args: --remote-root blog
