@@ -283,3 +283,22 @@ const Blog = ({ posts }: PostsProps) => {
 
 export default Blog
 ```
+
+Exploration of diff and JavaScript. I would really like both! Currently, the `prism-react-renderer` does not support syntax highlighting diff and JavaScript. There is a plugin for prism that will using `diff-javascript` but plugins are currently not supported.
+
+Just JavaScript
+
+```javascript
+function addTwoNumbers(num1, num2) {
+  return 1 + 2
+}
+```
+
+Now the diff version
+
+```diff
+function addTwoNumbers (num1, num2) {
+-  return 1 + 2
++  return num1 + num2
+}
+```
