@@ -49,5 +49,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           host: ${{ secrets.FTP_SERVER }}
           path: public
-          into: blog
+          into: blog-tutorial
           cleanupExisting: false # true is default, removes already existing files @into

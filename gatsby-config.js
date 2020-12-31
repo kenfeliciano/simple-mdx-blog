@@ -1,7 +1,7 @@
 const siteMetaData = {
   title: 'My MDX Blog',
   description: 'A simple blog built with Gatsby and MDX',
-  url: 'https://koamar.com/blog',
+  url: 'https://koamar.com/blog-tutorial',
   image: './src/images/meeting-room.jpg',
   twitterUsername: '@koamar',
   author: 'Ken Feliciano',
@@ -9,7 +9,7 @@ const siteMetaData = {
 
 module.exports = {
   siteMetadata: siteMetaData,
-  pathPrefix: `/blog`,
+  pathPrefix: `/blog-tutorial`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
